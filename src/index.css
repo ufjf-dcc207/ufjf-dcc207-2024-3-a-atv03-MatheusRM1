@@ -1,4 +1,6 @@
 :root {
+  line-height: 1.5;
+  font-weight: 400;
   place-content: center;
   min-height: 100vh;
 }
