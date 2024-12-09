@@ -3,16 +3,22 @@ import Animal from "./Animal";
 import "./App.css";
 import Exibicao from "./Exibicao";
 
-function App() {
-  const exA1: ReactNode[] = [
-    <Animal icone="🦁" nome="Leão" peso={190.5} extincao={true} />,
-    <Animal icone="🐼" nome="Panda" peso={400.5} extincao={true} />,
-  ];
+type AnimaisTuplaType = [string, string, number, boolean];
+const ANIMAIS: AnimaisTuplaType[] = [
+  ["🦁", "Leão", 190.5, true],
+  ["🐼", "Panda", 400.5, true],
+  ["🦄", "Unicornio", 500.25, true],
+  ["🐒", "Macaco", 50.25, false],
+];
 
-  const exB2: ReactNode[] = [
-    <Animal icone="🦄" nome="Unicornio" peso={500.25} extincao={true} />,
-    <Animal icone="🐒" nome="Macaco" peso={50.25} extincao={false} />,
-  ];
+function App() {
+  const exA1: ReactNode[] = [];
+
+  const exB2: ReactNode[] = [];
+
+  for(let i = 0; i < ANIMAIS.length; i++){
+    exA1.push(<Animal key={ANIMAIS[i][1]} icone={ANIMAIS[i][0]} nome={ANIMAIS[i][1]} peso={ANIMAIS[i][2]} extincao={ANIMAIS[i][3]} />)
+  }
   return (
     <div className="app">
       <Exibicao
