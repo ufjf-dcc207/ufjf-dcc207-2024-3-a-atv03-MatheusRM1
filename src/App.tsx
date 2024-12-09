@@ -17,7 +17,9 @@ function App() {
   const exB2: ReactNode[] = [];
 
   for(let i = 0; i < ANIMAIS.length; i++){
-    exA1.push(<Animal key={ANIMAIS[i][1]} icone={ANIMAIS[i][0]} nome={ANIMAIS[i][1]} peso={ANIMAIS[i][2]} extincao={ANIMAIS[i][3]} />)
+    const ex = ANIMAIS[i][2] < 200.00?exA1 : exB2;
+
+    ex.push(<Animal key={ANIMAIS[i][1]} icone={ANIMAIS[i][0]} nome={ANIMAIS[i][1]} peso={ANIMAIS[i][2]} extincao={ANIMAIS[i][3]} />)
   }
   return (
     <div className="app">
